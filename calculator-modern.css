@@ -1,0 +1,341 @@
+/* Современный дизайн калькулятора грузоперевозок */
+
+/* Основной контейнер секции */
+.form_calculator {
+    background: linear-gradient(135deg, #1d1a27 0%, #2a2635 100%);
+    padding: 50px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.form_calculator::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(255, 215, 0, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 50%, rgba(231, 40, 34, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.form_calculator .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Заголовок с иконкой */
+.form_calculator .header-section {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.form_calculator .header-wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    gap: 15px;
+}
+
+.form_calculator .calculator-icon {
+    background: #ffd700;
+    border-radius: 8px;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    flex-shrink: 0;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+}
+
+.form_calculator .h2 {
+    color: #ffffff;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 1.3;
+    margin: 0;
+    text-align: left;
+}
+
+.form_calculator .h3 {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 17px;
+    margin-bottom: 25px;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.form_calculator .h3 strong {
+    color: #ffd700;
+}
+
+/* Преимущества */
+.form_calculator .benefits {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.form_calculator .benefit-item {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.form_calculator .benefit-item .checkmark {
+    color: #e72822;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Скрываем старые иконки */
+.form_calculator .form_ico-container {
+    display: none;
+}
+
+/* Контейнер формы */
+.form_calculator .row_inner {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 0;
+}
+
+/* Поля ввода */
+.form_calculator .form_row {
+    position: relative;
+}
+
+.form_calculator .form_input--psuedo_border {
+    display: block;
+    position: relative;
+}
+
+.form_calculator .form_input {
+    width: 100%;
+    padding: 16px 20px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 16px;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.form_calculator .form_input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.form_calculator .form_input:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.12);
+    border-color: #ffd700;
+    box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.1);
+}
+
+.form_calculator .form_input:hover {
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+/* Стрелка для автокомплита */
+.form_calculator .form_arrow {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid rgba(255, 255, 255, 0.5);
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.form_calculator .autocomplete-wrapper.active .form_arrow {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+/* Кнопка отправки */
+.form_calculator .form_row-submit {
+    grid-column: 1 / -1;
+    margin-top: 10px;
+}
+
+.form_calculator .button {
+    width: 100%;
+    padding: 18px 45px;
+    background: linear-gradient(135deg, #e72822 0%, #c91f1a 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(231, 40, 34, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.form_calculator .button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.form_calculator .button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(231, 40, 34, 0.5);
+}
+
+.form_calculator .button:hover::before {
+    left: 100%;
+}
+
+.form_calculator .button:active {
+    transform: translateY(0);
+}
+
+/* Адаптация автокомплита под темную тему */
+.form_calculator .autocomplete-suggestions {
+    background: #2a2635;
+    border: 2px solid rgba(255, 215, 0, 0.3);
+    border-top: none;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.form_calculator .autocomplete-suggestion {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.form_calculator .autocomplete-suggestion:hover,
+.form_calculator .autocomplete-suggestion.selected {
+    background-color: rgba(255, 215, 0, 0.1);
+}
+
+.form_calculator .autocomplete-suggestion-city {
+    color: #ffffff;
+}
+
+.form_calculator .autocomplete-suggestion-region {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.form_calculator .autocomplete-loading,
+.form_calculator .autocomplete-no-results {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Индикатор загрузки для темной темы */
+.form_calculator .autocomplete-input.loading {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 50 50"><circle cx="25" cy="25" r="20" fill="none" stroke="%23ffd700" stroke-width="4" stroke-dasharray="31.415 31.415" transform="rotate(0 25 25)"><animateTransform attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="1s" repeatCount="indefinite"/></circle></svg>');
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .form_calculator {
+        padding: 35px 0;
+    }
+    
+    .form_calculator .h2 {
+        font-size: 24px;
+    }
+    
+    .form_calculator .h3 {
+        font-size: 15px;
+    }
+    
+    .form_calculator .row_inner {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .form_calculator .benefits {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+    
+    .form_calculator .benefit-item {
+        font-size: 15px;
+    }
+    
+    .form_calculator .header-wrapper {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .form_calculator .h2 {
+        text-align: center;
+    }
+    
+    .form_calculator .button {
+        padding: 16px 35px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .form_calculator .calculator-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+    
+    .form_calculator .h2 {
+        font-size: 20px;
+    }
+    
+    .form_calculator .form_input {
+        padding: 14px 16px;
+        font-size: 15px;
+    }
+}
+
+/* Анимация появления */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.form_calculator .row {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.form_calculator .form_row {
+    animation: fadeInUp 0.6s ease-out;
+    animation-fill-mode: both;
+}
+
+.form_calculator .form_row:nth-child(1) { animation-delay: 0.1s; }
+.form_calculator .form_row:nth-child(2) { animation-delay: 0.2s; }
+.form_calculator .form_row:nth-child(3) { animation-delay: 0.3s; }
+.form_calculator .form_row:nth-child(4) { animation-delay: 0.4s; }
+.form_calculator .form_row:nth-child(5) { animation-delay: 0.5s; }

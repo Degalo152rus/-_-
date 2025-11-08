@@ -1,57 +1,80 @@
 <!-- form calculator -->
-<div class="row form_calculator" id="main_form-pre">
-	<div class="row">
-		<p class="h2">Рассчитайте стоимость грузоперевозки и получите Скидку 10%</p>
-		<p class="h3">Введите данные, которые вам известны</p>
-	</div>
-	<div class="row form_ico-container">
-		<div class="row_inner">
-			<div class="form_row form_ico form_ico-location"><span></span></div>
-			<div class="form_row form_ico form_ico-location"><span></span></div>
-			<div class="form_row form_ico form_ico-size"><span></span></div>
-			<div class="form_row form_ico form_ico-weight"><span></span></div>
+<div class="form_calculator" id="main_form-pre">
+	<div class="container">
+		<!-- Заголовок секции -->
+		<div class="header-section">
+			<div class="header-wrapper">
+				<div class="calculator-icon">🚚</div>
+				<h2 class="h2">Автоматический расчёт стоимости перевозки</h2>
+			</div>
+			<p class="h3">
+				<strong>Первая компания в России</strong> с онлайн-калькулятором для FTL перевозок.<br>
+				Получите точную стоимость за 30 секунд без звонков и ожидания!
+			</p>
 		</div>
-	</div>
-	<div class="row">
-		<div class="row_inner">
-			<div class="form_row autocomplete-wrapper">
-				<span class="form_input--psuedo_border">
-					<input class="form_input autocomplete-input" 
-						id="form_value-from" 
-						name="city_from" 
-						type="text" 
-						placeholder="Откуда" 
-						autocomplete="off"
-						onfocus="this.placeholder = ''" 
-						onblur="this.placeholder = 'Откуда'">
-					<div class="autocomplete-suggestions" id="suggestions-from"></div>
-				</span>
-				<span class="form_arrow"></span>
+
+		<!-- Преимущества -->
+		<div class="benefits">
+			<div class="benefit-item">
+				<span class="checkmark">✓</span>
+				<span>Без оператора</span>
 			</div>
-			<div class="form_row autocomplete-wrapper">
-				<span class="form_input--psuedo_border">
-					<input class="form_input autocomplete-input" 
-						id="form_value-to" 
-						name="city_to" 
-						type="text"  
-						placeholder="Куда" 
-						autocomplete="off"
-						onfocus="this.placeholder = ''" 
-						onblur="this.placeholder = 'Куда'">
-					<div class="autocomplete-suggestions" id="suggestions-to"></div>
-				</span>
+			<div class="benefit-item">
+				<span class="checkmark">✓</span>
+				<span>Мгновенно</span>
 			</div>
-			<div class="form_row">
-				<span class="form_input--psuedo_border">
-					<input class="form_input" id="form_value-weight" type="text" placeholder="Объём (куб.м)" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Объём (куб.м)'">
-				</span>
+			<div class="benefit-item">
+				<span class="checkmark">✓</span>
+				<span>Вся Россия</span>
 			</div>
-			<div class="form_row">
-				<span class="form_input--psuedo_border">
-					<input class="form_input" id="form_value-massa" type="text" placeholder="Масса (т)" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Масса (т)'">
-				</span>
+		</div>
+
+		<!-- Форма -->
+		<div class="row">
+			<div class="row_inner">
+				<div class="form_row autocomplete-wrapper">
+					<span class="form_input--psuedo_border">
+						<input class="form_input autocomplete-input" 
+							id="form_value-from" 
+							name="city_from" 
+							type="text" 
+							placeholder="Откуда" 
+							autocomplete="off"
+							onfocus="this.placeholder = ''" 
+							onblur="this.placeholder = 'Откуда'">
+						<div class="autocomplete-suggestions" id="suggestions-from"></div>
+					</span>
+					<span class="form_arrow"></span>
+				</div>
+				<div class="form_row autocomplete-wrapper">
+					<span class="form_input--psuedo_border">
+						<input class="form_input autocomplete-input" 
+							id="form_value-to" 
+							name="city_to" 
+							type="text"  
+							placeholder="Куда" 
+							autocomplete="off"
+							onfocus="this.placeholder = ''" 
+							onblur="this.placeholder = 'Куда'">
+						<div class="autocomplete-suggestions" id="suggestions-to"></div>
+					</span>
+				</div>
+				<div class="form_row">
+					<span class="form_input--psuedo_border">
+						<input class="form_input" id="form_value-weight" type="text" placeholder="Объём (куб.м)" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Объём (куб.м)'">
+					</span>
+				</div>
+				<div class="form_row">
+					<span class="form_input--psuedo_border">
+						<input class="form_input" id="form_value-massa" type="text" placeholder="Масса (т)" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Масса (т)'">
+					</span>
+				</div>
+				<div class="form_row form_row-submit">
+					<button class="button" id="show_hidden_form">
+						<span>Рассчитать стоимость</span>
+					</button>
+				</div>
 			</div>
-			<div class="form_row form_row-submit"><button class="button" id="show_hidden_form"><span>Рассчитать</span></button></div>
 		</div>
 	</div>
 </div>

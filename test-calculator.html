@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Калькулятор грузоперевозок - Тест</title>
+    <title>Калькулятор грузоперевозок - Современный дизайн</title>
     
-    <!-- Подключение стилей автокомплита -->
+    <!-- Подключение стилей -->
     <link rel="stylesheet" href="autocomplete.css">
+    <link rel="stylesheet" href="calculator-modern.css">
     
-    <!-- Базовые стили для демонстрации -->
+    <!-- Базовые стили -->
     <style>
         * {
             margin: 0;
@@ -19,162 +20,96 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             background: #f5f5f5;
-            padding: 40px 20px;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: white;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        .h2 {
-            font-size: 28px;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 10px;
-            text-align: center;
-        }
-        
-        .h3 {
-            font-size: 16px;
-            color: #666;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-        
-        .row_inner {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
-        }
-        
-        .form_row {
-            position: relative;
-        }
-        
-        .form_input--psuedo_border {
-            display: block;
-            position: relative;
-        }
-        
-        .form_input {
-            width: 100%;
-            padding: 12px 16px;
-            border: 2px solid #ddd;
-            border-radius: 4px;
-            font-size: 14px;
-            transition: border-color 0.3s ease;
-        }
-        
-        .form_input:focus {
-            outline: none;
-            border-color: #007bff;
-        }
-        
-        .form_arrow {
-            position: absolute;
-            right: 12px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 0;
-            height: 0;
-            border-left: 6px solid transparent;
-            border-right: 6px solid transparent;
-            border-top: 8px solid #999;
-        }
-        
-        .button {
-            width: 100%;
-            padding: 14px 20px;
-            background: #007bff;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        
-        .button:hover {
-            background: #0056b3;
-        }
-        
-        .button:active {
-            transform: translateY(1px);
-        }
-        
-        .form_ico-container {
-            display: none; /* Скрываем иконки в демо версии */
-        }
-        
-        .form_row-submit {
-            grid-column: 1 / -1;
-            margin-top: 10px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         /* Информационный блок */
-        .info-block {
-            background: #e7f3ff;
-            border-left: 4px solid #007bff;
+        .demo-info {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: white;
             padding: 15px 20px;
-            margin-bottom: 30px;
-            border-radius: 4px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            max-width: 300px;
+            z-index: 9999;
         }
         
-        .info-block h4 {
-            color: #0056b3;
+        .demo-info h4 {
+            color: #e72822;
             margin-bottom: 8px;
-        }
-        
-        .info-block p {
-            color: #555;
             font-size: 14px;
-            line-height: 1.6;
         }
         
-        .info-block code {
-            background: #fff;
-            padding: 2px 6px;
+        .demo-info p {
+            color: #555;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+        
+        .demo-info code {
+            background: #f0f0f0;
+            padding: 2px 5px;
             border-radius: 3px;
             font-family: 'Courier New', monospace;
-            font-size: 13px;
+            font-size: 11px;
+        }
+        
+        @media (max-width: 768px) {
+            .demo-info {
+                position: static;
+                margin: 20px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Информационный блок -->
-        <div class="info-block">
-            <h4>📋 Тестовая версия калькулятора</h4>
-            <p>
-                Это демонстрационная версия с моковыми данными. 
-                Попробуйте ввести в поля "Откуда" или "Куда" названия городов: 
-                <code>Москва</code>, <code>Санкт-Петербург</code>, <code>Екатеринбург</code> и другие.
-                <br><br>
-                Откройте консоль браузера (F12), чтобы увидеть данные, которые будут отправлены на сервер.
-            </p>
-        </div>
-        
-        <!-- Форма калькулятора -->
-        <div class="row form_calculator" id="main_form-pre">
-            <div class="row">
-                <p class="h2">Рассчитайте стоимость грузоперевозки и получите Скидку 10%</p>
-                <p class="h3">Введите данные, которые вам известны</p>
+    <!-- Информационный блок -->
+    <div class="demo-info">
+        <h4>📋 Демо-версия</h4>
+        <p>
+            Попробуйте ввести: <code>Москва</code>, <code>СПб</code>, <code>Казань</code>.
+            <br><br>
+            Откройте консоль (F12) для просмотра данных.
+        </p>
+    </div>
+    
+    <!-- Форма калькулятора -->
+    <div class="form_calculator" id="main_form-pre">
+        <div class="container">
+            <!-- Заголовок секции -->
+            <div class="header-section">
+                <div class="header-wrapper">
+                    <div class="calculator-icon">🚚</div>
+                    <h2 class="h2">Автоматический расчёт стоимости перевозки</h2>
+                </div>
+                <p class="h3">
+                    <strong>Первая компания в России</strong> с онлайн-калькулятором для FTL перевозок.<br>
+                    Получите точную стоимость за 30 секунд без звонков и ожидания!
+                </p>
             </div>
-            <div class="row form_ico-container">
-                <div class="row_inner">
-                    <div class="form_row form_ico form_ico-location"><span></span></div>
-                    <div class="form_row form_ico form_ico-location"><span></span></div>
-                    <div class="form_row form_ico form_ico-size"><span></span></div>
-                    <div class="form_row form_ico form_ico-weight"><span></span></div>
+
+            <!-- Преимущества -->
+            <div class="benefits">
+                <div class="benefit-item">
+                    <span class="checkmark">✓</span>
+                    <span>Без оператора</span>
+                </div>
+                <div class="benefit-item">
+                    <span class="checkmark">✓</span>
+                    <span>Мгновенно</span>
+                </div>
+                <div class="benefit-item">
+                    <span class="checkmark">✓</span>
+                    <span>Вся Россия</span>
                 </div>
             </div>
+
+            <!-- Форма -->
             <div class="row">
                 <div class="row_inner">
                     <div class="form_row autocomplete-wrapper">
@@ -216,7 +151,7 @@
                     </div>
                     <div class="form_row form_row-submit">
                         <button class="button" id="show_hidden_form">
-                            <span>Рассчитать</span>
+                            <span>Рассчитать стоимость</span>
                         </button>
                     </div>
                 </div>
