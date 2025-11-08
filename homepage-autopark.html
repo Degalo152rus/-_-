@@ -1,0 +1,58 @@
+<!-- order -->
+<div class="row section section_txt-big" id="autopark">
+	<div class="container">
+		<div class="row">
+			<p class="h2">Наш автопарк</p>
+		</div>
+		<div class="row">
+			<ul class="auto_slider-nav">
+				[!Ditto?
+				&parents=`6`
+				&noResults=` `
+				&randomize=`0`
+				&depth=`1`
+				&orderBy=`menuindex ASC`
+				&tpl=`@CODE:
+				<li><span>
+					<span class="status">[+longtitle+] м<sup>3</sup></span>
+					<p><img src="[+autopark-image+]" alt="[+pagetitle+]"></p>
+					<p>[+pagetitle+]</p>
+				</span>
+				</li>`
+				!]
+			</ul>
+		</div>
+		<div class="row">
+			<div class="row auto_slider">
+				
+				[!Ditto?
+				&parents=`6`
+				&noResults=` `
+				&randomize=`0`
+				&depth=`1`
+				&orderBy=`menuindex ASC`
+				&tpl=`@CODE: 
+				<div class="row auto_slider-box">
+					<div class="col_12">
+						<p class="h3">[+pagetitle+] / [+longtitle+] м<sup>3</sup></p>
+					</div>
+					<div class="col_6">
+						<img src="[+autopark-image-size+]" alt="[+pagetitle+]">
+					</div>
+					<div class="col_6 auto_slider-har">
+						<div class="row">
+							<p class="h4">Характеристики</p>
+						</div>
+						<div class="row">
+							[+content+]
+						</div>
+					</div>
+				</div>
+				`
+				!]
+				
+				
+			</div>
+		</div>
+	</div>
+</div>

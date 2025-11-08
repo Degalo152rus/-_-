@@ -1,0 +1,22 @@
+# Системные файлы
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Временные файлы
+*.tmp
+*.temp
+*~
+
+# Логи
+*.log
+
+# Папки зависимостей
+node_modules/
+
+# Файлы IDE
+.vscode/settings.json
+.idea/
+
+# Системные папки Windows
+$RECYCLE.BIN/
