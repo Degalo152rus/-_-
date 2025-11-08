@@ -1,0 +1,124 @@
+<style>
+/* Объем с более темными тенями */
+.reasons_item {
+    transition: box-shadow 0.3s ease;
+    padding: 20px;
+    margin-bottom: 30px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.reasons_item:hover {
+    box-shadow: 0 15px 50px rgba(0,0,0,0.2);
+    border-color: rgba(0,0,0,0.08);
+}
+
+/* Круглые иконки слева */
+.reasons_item-img {
+    transition: all 0.3s ease;
+    border-radius: 50% !important;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    border: 1px solid rgba(0,0,0,0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.reasons_item-img img {
+    max-width: 100%;
+    max-height: 150px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.reasons_item:hover .reasons_item-img {
+    box-shadow: 0 8px 25px rgba(231,40,34,0.3);
+    border-color: rgba(231,40,34,0.1);
+}
+
+/* Заголовки при наведении */
+.reasons_item .h3 {
+    text-align: center !important;
+}
+
+.reasons_item:hover .h3 {
+    color: #e72822;
+}
+
+/* СОВРЕМЕННЫЕ МИНИМАЛИСТИЧНЫЕ МАРКЕРЫ - РОМБЫ 
+.reasons_item ul li:after {
+    content: "" !important;
+    position: absolute !important;
+    top: 8px !important;
+    left: 0 !important;
+    width: 6px !important;
+    height: 6px !important;
+    background: #e72822 !important;
+    border: none !important;
+    border-radius: 1px !important;
+    transform: rotate(45deg) !important;
+    transition: all 0.3s ease !important;
+}
+
+.reasons_item:hover ul li:after {
+    background: linear-gradient(135deg, #e72822 0%, #ff6b6b 100%) !important;
+    transform: rotate(45deg) scale(1.3) !important;
+} */
+
+/* Альтернативный вариант - ТОНКИЕ СТРЕЛКИ 
+.reasons_item ul li:after {
+    content: "→" !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    color: #e72822 !important;
+    font-size: 16px !important;
+    font-weight: 300 !important;
+    background: none !important;
+    border: none !important;
+    width: auto !important;
+    height: auto !important;
+}*/
+
+
+/* Альтернативный вариант - ГРАДИЕНТНЫЕ ЛИНИИ*/
+.reasons_item ul li:after {
+    content: "" !important;
+    position: absolute !important;
+    top: 10px !important;
+    left: 0 !important;
+    width: 12px !important;
+    height: 2px !important;
+    background: linear-gradient(90deg, #e72822 0%, #ff6b6b 100%) !important;
+    border: none !important;
+    border-radius: 2px !important;
+}
+</style>
+<div class="row section" id="reasons">
+	<div class="container">
+		<div class="row">
+			<p class="h2">Грузоперевозки с «ТК-Ирса» — это надёжно</p>
+		</div>
+		<div class="row reasons_list">
+			[!ddGetMultipleField?
+			&inputString_docId=`1`
+			&inputString_docField=`reasons`
+			&rowTpl=`@CODE:
+			<div class="reasons_item">
+				<div class="reasons_item-img" style="background:#fff;"> 
+					<img src="[+col0+]" alt="">
+				</div>
+				<div class="row">
+					<p class="h3">[+col1+]</p>
+					[+col2+]
+				</div>
+			</div>
+			`
+			!]
+		</div>
+	</div>
+</div>
