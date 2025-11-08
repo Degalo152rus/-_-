@@ -14,15 +14,31 @@
 	</div>
 	<div class="row">
 		<div class="row_inner">
-			<div class="form_row">
+			<div class="form_row autocomplete-wrapper">
 				<span class="form_input--psuedo_border">
-					<input class="form_input" id="form_value-from" name="city_from" type="text" placeholder="Откуда" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Откуда'">
+					<input class="form_input autocomplete-input" 
+						id="form_value-from" 
+						name="city_from" 
+						type="text" 
+						placeholder="Откуда" 
+						autocomplete="off"
+						onfocus="this.placeholder = ''" 
+						onblur="this.placeholder = 'Откуда'">
+					<div class="autocomplete-suggestions" id="suggestions-from"></div>
 				</span>
 				<span class="form_arrow"></span>
 			</div>
-			<div class="form_row">
+			<div class="form_row autocomplete-wrapper">
 				<span class="form_input--psuedo_border">
-					<input class="form_input" id="form_value-to" name="city_to" type="text"  placeholder="Куда" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Куда'">
+					<input class="form_input autocomplete-input" 
+						id="form_value-to" 
+						name="city_to" 
+						type="text"  
+						placeholder="Куда" 
+						autocomplete="off"
+						onfocus="this.placeholder = ''" 
+						onblur="this.placeholder = 'Куда'">
+					<div class="autocomplete-suggestions" id="suggestions-to"></div>
 				</span>
 			</div>
 			<div class="form_row">
