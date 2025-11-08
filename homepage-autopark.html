@@ -1,4 +1,250 @@
 <!-- order -->
+<style>
+.auto_slider-har table,
+.auto_slider-har ul {
+    width: 100%;
+}
+
+.auto_slider-har tr,
+.auto_slider-har li {
+    display: flex;
+    justify-content: space-between;
+    padding: 7px 10px; /* Вертикальный 7px */
+    margin: 3px 0;
+    background: #f8f8f8;
+    border-radius: 8px;
+    border: none !important;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.auto_slider-har tr:hover,
+.auto_slider-har li:hover {
+    background: linear-gradient(90deg, #fff 0%, #f0f0f0 100%);
+    padding-left: 20px;
+    box-shadow: 0 3px 10px rgba(231,40,34,0.1);
+}
+
+.auto_slider-har tr td:first-child,
+.auto_slider-har li strong,
+.auto_slider-har li b {
+    color: #666;
+    font-weight: 500;
+    position: relative;
+    min-width: 40%;
+}
+
+.auto_slider-har tr td:last-child,
+.auto_slider-har li span {
+    color: #333;
+    font-weight: 600;
+    text-align: right;
+    margin-left: 15px;
+}
+
+/* Красная точка перед названием */
+.auto_slider-har tr:before,
+.auto_slider-har li:before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 4px;
+    background: #e72822;
+    border-radius: 50%;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.auto_slider-har tr:hover:before,
+.auto_slider-har li:hover:before {
+    opacity: 1;
+}
+
+/* Современные стили для автопарка */
+#autopark .h2 {
+    position: relative;
+    padding-bottom: 15px;
+    text-align: center;
+}
+
+#autopark .h2:after {
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    height: 6px;
+    width: 30px;
+    background: #e72822;
+    left: 50%;
+    margin-left: -15px;
+    transform-origin: 50% 50%;
+    transform: skewX(-25deg);
+}
+
+/* Навигация слайдера - превью машин */
+.auto_slider-nav {
+    display: flex;
+    gap: 20px;
+    padding: 20px 0;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.auto_slider-nav li {
+    background: #fff;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.auto_slider-nav li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.auto_slider-nav li.active {
+    background: linear-gradient(135deg, #fff 0%, #f8f8f8 100%);
+    border: 2px solid #ED1C24;
+}
+
+.auto_slider-nav .status {
+    background: #ED1C24;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.auto_slider-nav li:hover .status {
+    background: linear-gradient(90deg, #ED1C24 0%, #ff6b6b 100%);
+}
+
+/* Основной слайдер */
+.auto_slider-box {
+    background: white;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    margin: 20px 0;
+    animation: slideIn 0.5s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.auto_slider-box .h3 {
+    color: #333;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.auto_slider-box img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+
+.auto_slider-box img:hover {
+    transform: scale(1.02);
+}
+
+/* Блок характеристик */
+.auto_slider-har {
+    padding-left: 30px;
+}
+
+.auto_slider-har .h4 {
+    color: #ED1C24;
+    font-weight: 600;
+    margin-bottom: 20px;
+    position: relative;
+    padding-left: 15px;
+}
+
+.auto_slider-har .h4:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 20px;
+    background: #ED1C24;
+    border-radius: 2px;
+}
+
+.auto_slider-har ul li {
+    padding: 5px 0;
+    border-bottom: 1px solid #f5f5f5;
+    transition: all 0.3s ease;
+}
+
+.auto_slider-har ul li:hover {
+    padding-left: 8px;
+    color: #ED1C24;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .auto_slider-har {
+        padding-left: 0;
+        margin-top: 20px;
+    }
+    
+    .auto_slider-nav {
+        gap: 10px;
+    }
+    
+    .auto_slider-box {
+        padding: 20px;
+    }
+    
+    /* ИСПРАВЛЕНИЕ ДЛЯ МОБИЛЬНОЙ ВЕРСИИ */
+    .auto_slider-har tr,
+    .auto_slider-har li {
+        padding: 0 8px; /* Убрали вертикальный padding для мобильных */
+        gap: 10px;
+    }
+    
+    .auto_slider-har tr:hover,
+    .auto_slider-har li:hover {
+        padding-left: 15px; /* Уменьшили hover отступ для мобильных */
+    }
+    
+    .auto_slider-har tr td:first-child,
+    .auto_slider-har li strong,
+    .auto_slider-har li b {
+        min-width: 50%;
+    }
+    
+    .auto_slider-har tr td:last-child,
+    .auto_slider-har li span {
+        margin-left: auto;
+        padding-left: 10px;
+    }
+}
+	
+</style>
+
 <div class="row section section_txt-big" id="autopark">
 	<div class="container">
 		<div class="row">
